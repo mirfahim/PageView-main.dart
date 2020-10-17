@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+
+
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SampleApp(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class SampleApp extends StatefulWidget {
+  @override
+  _SampleAppState createState() => _SampleAppState();
+}
+
+class _SampleAppState extends State<SampleApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Your heading'),
+      ),
+      body: ListView.builder(
+          itemCount: 4,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                   shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 20,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('Name'),
+                                Text('Date'),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.90,
+                          height: MediaQuery.of(context).size.height * 0.20,
+                          color: Colors.blue,
+                          child: Center(
+                            child: Text('Your text'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Icon(Icons.camera_alt),
+                          Icon(Icons.camera_enhance),
+                          Icon(Icons.camera_rear),
+                          Icon(Icons.card_membership)
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }),
+    );
+  }
+}
